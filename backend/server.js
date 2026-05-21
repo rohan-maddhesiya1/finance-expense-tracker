@@ -10,16 +10,22 @@ const app = express();
 
 // ─── CORS ──────────────────────────────────────────────────────
 const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim())
+  ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim().replace(/\/$/, ''))
   : ['http://localhost:3000'];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) {
+        callback(null, true);
+        return;
+      }
+      const normalizedOrigin = origin.replace(/\/$/, '');
+      if (allowedOrigins.includes(normalizedOrigin)) {
         callback(null, true);
       } else {
-        callback(new Error(`CORS: origin '${origin}' not allowed`));
+        console.warn(`[CORS Blocked] Origin: ${origin}. Allowed:`, allowedOrigins);
+        callback(null, false);
       }
     },
     credentials: true,
