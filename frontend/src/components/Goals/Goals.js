@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Plus, Trash2, X, Target } from 'lucide-react';
+import { Star, Plus, Trash2, X } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import './Goals.css';

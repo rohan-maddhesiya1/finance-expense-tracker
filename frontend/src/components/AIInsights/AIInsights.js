@@ -116,22 +116,21 @@ export default function AIInsights() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const now = new Date();
-  const prevMonth = now.getMonth() === 0 ? 12 : now.getMonth();
-  const prevYear = now.getMonth() === 0 ? now.getFullYear() - 1 : now.getFullYear();
-
   const load = useCallback(async () => {
     setLoading(true);
     setError(null);
     try {
+      const now = new Date();
+      const prevMonth = now.getMonth() === 0 ? 12 : now.getMonth();
+      const prevYear = now.getMonth() === 0 ? now.getFullYear() - 1 : now.getFullYear();
       const [curr, prev] = await Promise.all([
         expenseAPI.getSummary({ month: now.getMonth() + 1, year: now.getFullYear() }),
         expenseAPI.getSummary({ month: prevMonth, year: prevYear }),
       ]);
       const result = generateInsights(curr.data.summary, prev.data.summary, sym);
-      const totalCurrent = curr.data.summary?.totalExpense || 0;
+      const totalCurr = curr.data.summary?.totalExpense || 0;
       const totalPrev = prev.data.summary?.totalExpense || 0;
-      setData({ ...result, totalCurrent, totalPrev, summary: curr.data.summary });
+      setData({ ...result, totalCurrent: totalCurr, totalPrev, summary: curr.data.summary });
     } catch (e) {
       setError('Could not load expense data.');
     } finally {
@@ -158,7 +157,7 @@ export default function AIInsights() {
     </div>
   );
 
-  const { insights, suggestions, predictedNext, totalCurrent, totalPrev } = data;
+  const { insights, suggestions, predictedNext } = data;
 
   return (
     <div className="ai-insights-card card">

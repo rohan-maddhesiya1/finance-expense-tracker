@@ -4,7 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import { Plus, Trash2, X, AlertTriangle } from 'lucide-react';
 import { useNotifications } from '../../context/NotificationContext';
-import { format } from 'date-fns';
+
 import './Budget.css';
 
 const CATEGORIES = ['Food & Dining','Shopping','Transportation','Bills & Utilities','Entertainment','Health & Medical','Travel','Education','Investments','Other'];
@@ -33,7 +33,7 @@ export default function Budget() {
       if (res.data.budgets?.length) checkBudgetAlerts(res.data.budgets);
     } catch { toast.error('Failed to load budgets'); }
     finally { setLoading(false); }
-  }, [month, year]);
+  }, [month, year, checkBudgetAlerts]);
 
   useEffect(() => { fetchBudgets(); }, [fetchBudgets]);
 

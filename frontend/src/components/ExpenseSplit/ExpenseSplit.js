@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Split, Plus, X, Users, CheckCircle, Clock } from 'lucide-react';
+import { Split, Plus, X, CheckCircle, Clock } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import './ExpenseSplit.css';

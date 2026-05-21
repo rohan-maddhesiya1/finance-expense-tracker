@@ -52,6 +52,7 @@ export default function Dashboard() {
 
   const fetchData = useCallback(async () => {
     try {
+      const now = new Date();
       const [sumRes, expRes, budgetRes] = await Promise.all([
         expenseAPI.getSummary({ month: now.getMonth() + 1, year: now.getFullYear() }),
         expenseAPI.getAll({ limit: 6, page: 1 }),
