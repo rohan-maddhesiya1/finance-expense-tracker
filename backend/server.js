@@ -8,8 +8,7 @@ dotenv.config();
 
 const app = express();
 
-// CORS — allow origins listed in ALLOWED_ORIGINS env var (comma-separated)
-// Falls back to localhost for local development
+// ─── CORS ──────────────────────────────────────────────────────
 const allowedOrigins = process.env.ALLOWED_ORIGINS
   ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim())
   : ['http://localhost:3000'];
@@ -17,7 +16,6 @@ const allowedOrigins = process.env.ALLOWED_ORIGINS
 app.use(
   cors({
     origin: function (origin, callback) {
-      // Allow requests with no origin (e.g. curl, Postman, server-to-server)
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -32,18 +30,38 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 if (process.env.NODE_ENV !== 'production') app.use(morgan('dev'));
 
-// Routes
+// ─── Lazy MongoDB connection (MUST be before routes) ───────────
+// On Vercel serverless, each invocation may be a cold start.
+// We connect once per container instance and reuse the connection.
+let isConnected = false;
+const connectDB = async () => {
+  if (isConnected) return;
+  await mongoose.connect(process.env.MONGODB_URI);
+  isConnected = true;
+  console.log('✅ MongoDB connected');
+};
+
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('❌ MongoDB connection failed:', err.message);
+    res.status(500).json({ success: false, message: 'Database connection failed' });
+  }
+});
+
+// ─── Routes ────────────────────────────────────────────────────
 app.use('/api/auth',     require('./routes/auth'));
 app.use('/api/expenses', require('./routes/expenses'));
 app.use('/api/budgets',  require('./routes/budgets'));
 app.use('/api/reports',  require('./routes/reports'));
 
-// Health check
+// ─── Health / Version ──────────────────────────────────────────
 app.get('/api/health', (req, res) =>
   res.json({ status: 'OK', message: 'Server is running' })
 );
 
-// Version info
 app.get('/api/version', (req, res) =>
   res.json({
     version: '2.0.0',
@@ -54,7 +72,7 @@ app.get('/api/version', (req, res) =>
   })
 );
 
-// Global error handler
+// ─── Global error handler ──────────────────────────────────────
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(err.statusCode || 500).json({
@@ -63,37 +81,18 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Connect to MongoDB then start server (skipped on Vercel — serverless)
+// ─── Local dev: start HTTP server ─────────────────────────────
+// On Vercel this block is skipped — Vercel calls module.exports directly.
 if (process.env.NODE_ENV !== 'production') {
   const PORT = process.env.PORT || 5000;
-  mongoose
-    .connect(process.env.MONGODB_URI)
+  connectDB()
     .then(() => {
-      console.log('✅ MongoDB connected successfully');
       app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
     })
     .catch((err) => {
-      console.error('❌ MongoDB connection error:', err.message);
+      console.error('❌ Startup error:', err.message);
       process.exit(1);
     });
-} else {
-  // On Vercel — connect lazily on first request
-  let isConnected = false;
-  const connectOnce = async () => {
-    if (!isConnected) {
-      await mongoose.connect(process.env.MONGODB_URI);
-      isConnected = true;
-    }
-  };
-  app.use(async (req, res, next) => {
-    try {
-      await connectOnce();
-      next();
-    } catch (err) {
-      next(err);
-    }
-  });
 }
 
 module.exports = app;
-
