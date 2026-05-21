@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Palette, X, Check } from 'lucide-react';
-import { useTheme, THEMES } from '../../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 import './ThemeSwitcher.css';
 
 const THEME_PREVIEWS = {

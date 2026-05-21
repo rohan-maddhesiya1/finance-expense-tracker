@@ -5,7 +5,7 @@ import {
   LayoutDashboard, ArrowLeftRight, PieChart, Target,
   LogOut, Menu, X, Wallet, ChevronRight,
   RefreshCw, Landmark, Split, Bell, CreditCard,
-  TrendingUp, Lightbulb, Calculator, Star,
+  Lightbulb, Calculator, Star,
 } from 'lucide-react';
 import NotificationPanel from '../Notifications/NotificationPanel';
 import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';

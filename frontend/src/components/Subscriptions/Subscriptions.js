@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CreditCard, Plus, X, Pause, Play } from 'lucide-react';
+import { Plus, X, Pause, Play } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import './Subscriptions.css';

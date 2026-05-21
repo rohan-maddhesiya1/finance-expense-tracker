@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calculator, Info } from 'lucide-react';
+import { Info } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import './Tax.css';
 

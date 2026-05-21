@@ -9,9 +9,9 @@ export default function Insights() {
   const sym = { USD:'$', EUR:'€', GBP:'£', INR:'₹', JPY:'¥', CAD:'CA$', AUD:'A$' }[user?.currency] || '$';
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
-  const now = new Date();
 
   useEffect(() => {
+    const now = new Date();
     expenseAPI.getSummary({ month: now.getMonth()+1, year: now.getFullYear() })
       .then(res => setSummary(res.data.summary))
       .catch(()=>{})
