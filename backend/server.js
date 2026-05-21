@@ -9,25 +9,9 @@ dotenv.config();
 const app = express();
 
 // ─── CORS ──────────────────────────────────────────────────────
-const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(',').map((o) => o.trim().replace(/\/$/, ''))
-  : ['http://localhost:3000'];
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin) {
-        callback(null, true);
-        return;
-      }
-      const normalizedOrigin = origin.replace(/\/$/, '');
-      if (allowedOrigins.includes(normalizedOrigin)) {
-        callback(null, true);
-      } else {
-        console.warn(`[CORS Blocked] Origin: ${origin}. Allowed:`, allowedOrigins);
-        callback(null, false);
-      }
-    },
+    origin: true,
     credentials: true,
   })
 );
