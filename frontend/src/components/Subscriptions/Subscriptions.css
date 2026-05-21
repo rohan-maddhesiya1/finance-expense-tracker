@@ -1,0 +1,25 @@
+.subs-page { max-width: 900px; }
+.subs-summary { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 24px; }
+.sub-sum-card { padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.sub-sum-label { font-size: 0.8rem; color: var(--text-muted); }
+.sub-sum-val { font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); }
+.popular-section { margin-bottom: 28px; }
+.popular-title { font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: var(--text-secondary); }
+.popular-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 12px; }
+.popular-card { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 16px 12px; cursor: pointer; text-align: center; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); transition: all 0.2s; }
+.popular-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.popular-name { font-size: 0.82rem; font-weight: 600; }
+.popular-price { font-size: 0.75rem; color: var(--text-muted); }
+.popular-add { font-size: 0.75rem; color: var(--accent-light); font-weight: 600; }
+.subs-list { display: flex; flex-direction: column; gap: 10px; }
+.sub-item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; }
+.sub-item.paused { opacity: 0.5; }
+.sub-icon { font-size: 1.6rem; width: 42px; text-align: center; flex-shrink: 0; }
+.sub-info { flex: 1; min-width: 0; }
+.sub-name { font-weight: 600; font-size: 0.9rem; }
+.sub-meta { font-size: 0.76rem; color: var(--text-muted); margin-top: 2px; }
+.sub-amount { font-weight: 700; font-size: 0.9rem; min-width: 80px; text-align: right; }
+.sub-actions { display: flex; align-items: center; gap: 6px; }
+.sub-toggle { font-size: 0.78rem; padding: 5px 10px; border-radius: 99px; background: var(--bg-card-hover); border: 1px solid var(--border); color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.sub-toggle.active { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+@media (max-width: 600px) { .subs-summary { grid-template-columns: 1fr; } }

@@ -1,0 +1,26 @@
+.goals-page { max-width: 960px; }
+.goals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 18px; }
+.goal-card { padding: 20px; transition: transform 0.2s; }
+.goal-card:hover { transform: translateY(-2px); }
+.goal-done { border-color: var(--green) !important; }
+.goal-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+.goal-icon-wrap { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.goal-info { flex: 1; min-width: 0; }
+.goal-name { font-weight: 700; font-size: 0.95rem; }
+.goal-deadline { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+.goal-badge { font-size: 0.72rem; background: var(--green-dim); color: var(--green); padding: 3px 8px; border-radius: 99px; font-weight: 600; white-space: nowrap; }
+.goal-amounts { display: flex; gap: 6px; align-items: baseline; margin-bottom: 10px; font-size: 0.9rem; }
+.goal-progress-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.goal-progress-bar { flex: 1; height: 8px; border-radius: 99px; overflow: hidden; }
+.goal-progress-fill { height: 100%; border-radius: 99px; transition: width 0.5s ease; }
+.goal-pct { font-size: 0.8rem; font-weight: 700; min-width: 36px; text-align: right; }
+.goal-add-btn { width: 100%; padding: 8px; border-radius: var(--radius); background: transparent; border: 1px dashed; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
+.goal-add-btn:hover { opacity: 0.7; }
+.goal-add-funds { display: flex; gap: 8px; }
+.goal-add-funds input { flex: 1; }
+.icon-picker { display: flex; gap: 8px; flex-wrap: wrap; }
+.icon-btn-sel { background: var(--bg-card-hover); border: 2px solid transparent; border-radius: 8px; padding: 6px 8px; font-size: 1.2rem; cursor: pointer; transition: all 0.15s; }
+.icon-btn-sel.active { border-color: var(--accent); background: var(--accent-dim); }
+.color-picker { display: flex; gap: 10px; }
+.color-dot { width: 26px; height: 26px; border-radius: 50%; border: 3px solid transparent; cursor: pointer; transition: all 0.15s; }
+.color-dot.active { border-color: var(--text-primary); transform: scale(1.15); }

@@ -1,0 +1,18 @@
+.recurring-page { max-width: 900px; }
+.rec-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+.rec-sum-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.rec-sum-label { font-size: 0.82rem; color: var(--text-muted); }
+.rec-sum-val { font-size: 1.4rem; font-weight: 700; font-family: var(--font-display); }
+.rec-sum-val.green { color: var(--green); }
+.rec-sum-val.red { color: var(--red); }
+.rec-list { display: flex; flex-direction: column; gap: 10px; }
+.rec-item { display: flex; align-items: center; gap: 14px; padding: 16px 20px; }
+.rec-item-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.rec-item-info { flex: 1; min-width: 0; }
+.rec-item-title { font-weight: 600; font-size: 0.9rem; }
+.rec-item-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+.rec-item-period { display: flex; align-items: center; gap: 4px; font-size: 0.78rem; color: var(--text-secondary); background: var(--bg-card-hover); padding: 4px 10px; border-radius: 99px; }
+.rec-item-amount { font-weight: 700; font-size: 0.95rem; min-width: 100px; text-align: right; }
+.rec-item-amount.green { color: var(--green); }
+.rec-item-amount.red { color: var(--red); }
+@media (max-width: 600px) { .rec-summary { grid-template-columns: 1fr; } }

@@ -1,0 +1,33 @@
+.budget-page { display: flex; flex-direction: column; gap: 20px; }
+
+.budget-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.summary-stat { display: flex; flex-direction: column; gap: 4px; }
+.summary-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.7px; font-weight: 600; }
+.summary-value { font-family: var(--font-display); font-size: 1.4rem; font-weight: 800; }
+
+.budgets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+
+.budget-card { transition: transform 0.2s; }
+.budget-card:hover { transform: translateY(-2px); }
+.budget-card.over-budget { border-color: rgba(239, 68, 68, 0.3); }
+
+.budget-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.budget-category { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.budget-month { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+
+.budget-amounts { display: flex; justify-content: space-between; }
+.amount-label { font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+.amount-value { font-family: var(--font-display); font-size: 1.2rem; font-weight: 700; }
+
+.budget-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+
+@media (max-width: 700px) {
+  .budget-summary { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 400px) {
+  .budget-summary { grid-template-columns: 1fr; }
+}

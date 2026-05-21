@@ -1,0 +1,18 @@
+.savings-page { max-width: 960px; }
+.savings-summary { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 28px; }
+.sav-card { display: flex; align-items: center; gap: 14px; padding: 20px; }
+.sav-card-info { display: flex; flex-direction: column; gap: 4px; }
+.sav-label { font-size: 0.8rem; color: var(--text-muted); }
+.sav-val { font-size: 1.3rem; font-weight: 700; font-family: var(--font-display); }
+.savings-table { overflow-x: auto; padding: 0; }
+.savings-table table { width: 100%; border-collapse: collapse; }
+.savings-table th { padding: 12px 16px; text-align: left; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+.savings-table td { padding: 14px 16px; font-size: 0.88rem; border-bottom: 1px solid var(--border); }
+.savings-table tr:last-child td { border-bottom: none; }
+.month-cell { font-weight: 600; font-family: var(--font-display); }
+.green { color: var(--green); font-weight: 600; }
+.red { color: var(--red); font-weight: 600; }
+.rate-bar-wrap { display: flex; align-items: center; gap: 8px; }
+.rate-bar-wrap > div { height: 6px; background: var(--green); border-radius: 99px; min-width: 2px; }
+.notes-cell { color: var(--text-muted); font-size: 0.82rem; }
+@media (max-width: 600px) { .savings-summary { grid-template-columns: 1fr; } }

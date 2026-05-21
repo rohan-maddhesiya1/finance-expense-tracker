@@ -1,0 +1,23 @@
+.split-page { max-width: 860px; }
+.split-alert { display: flex; align-items: center; gap: 12px; padding: 14px 20px; margin-bottom: 20px; border-color: var(--yellow); background: var(--yellow-dim); }
+.splits-list { display: flex; flex-direction: column; gap: 16px; }
+.split-card { padding: 20px; }
+.all-paid { border-color: var(--green) !important; }
+.split-card-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.split-title { font-weight: 700; font-size: 0.95rem; }
+.split-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
+.split-card-header > div:first-child { flex: 1; }
+.split-total { font-weight: 700; font-size: 1.1rem; color: var(--accent-light); }
+.split-notes { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px; }
+.split-participants { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.participant-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: var(--bg-card-hover); border-radius: var(--radius); transition: opacity 0.2s; }
+.participant-row.paid { opacity: 0.55; }
+.participant-avatar { width: 28px; height: 28px; background: var(--accent-dim); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; color: var(--accent-light); flex-shrink: 0; }
+.participant-name { flex: 1; font-size: 0.88rem; font-weight: 500; }
+.participant-amount { font-weight: 600; font-size: 0.88rem; color: var(--text-secondary); }
+.paid-btn { font-size: 0.78rem; padding: 4px 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 99px; color: var(--text-muted); display: flex; align-items: center; gap: 4px; }
+.paid-btn.is-paid { background: var(--green-dim); border-color: var(--green); color: var(--green); }
+.split-progress { display: flex; align-items: center; gap: 10px; }
+.split-prog-bar { flex: 1; height: 6px; background: var(--border); border-radius: 99px; overflow: hidden; }
+.split-prog-fill { height: 100%; background: var(--green); border-radius: 99px; transition: width 0.4s; }
+.split-progress span { font-size: 0.78rem; color: var(--text-muted); white-space: nowrap; }

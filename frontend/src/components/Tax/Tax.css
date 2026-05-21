@@ -1,0 +1,29 @@
+.tax-page { max-width: 1000px; }
+.tax-layout { display: grid; grid-template-columns: 420px 1fr; gap: 20px; align-items: start; }
+.tax-form { padding: 24px; }
+.tax-section-title { font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 14px; }
+.tax-regime-toggle { margin: 16px 0; }
+.tax-regime-toggle label { display: block; font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 8px; }
+.toggle-group { display: flex; background: var(--bg-card-hover); border-radius: var(--radius); padding: 3px; gap: 3px; }
+.toggle-group button { flex: 1; padding: 8px; border-radius: 8px; background: transparent; color: var(--text-muted); font-size: 0.85rem; }
+.toggle-group button.active { background: var(--accent); color: white; }
+.tax-info-box { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-muted); background: var(--bg-card-hover); padding: 10px 14px; border-radius: var(--radius); margin-top: 16px; }
+.tax-results { display: flex; flex-direction: column; gap: 16px; }
+.tax-result-card { padding: 24px; }
+.tax-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; font-size: 0.88rem; }
+.tax-row.bold { font-weight: 700; }
+.tax-row.highlight { background: var(--bg-card-hover); padding: 10px 12px; border-radius: var(--radius); margin: 4px 0; }
+.tax-row.big span:last-child { font-size: 1.1rem; font-weight: 800; font-family: var(--font-display); }
+.tax-divider { height: 1px; background: var(--border); margin: 8px 0; }
+.green { color: var(--green); font-weight: 600; }
+.red { color: var(--red); font-weight: 600; }
+.regime-compare { padding: 24px; }
+.compare-grid { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.compare-col { flex: 1; padding: 14px; background: var(--bg-card-hover); border-radius: var(--radius); text-align: center; border: 2px solid transparent; }
+.compare-col.better { border-color: var(--green); background: var(--green-dim); }
+.compare-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 6px; }
+.compare-tax { font-size: 1.2rem; font-weight: 800; font-family: var(--font-display); }
+.compare-rate { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+.compare-vs { font-weight: 800; color: var(--text-muted); font-size: 0.8rem; }
+.better-regime { text-align: center; font-size: 0.88rem; padding: 12px; background: var(--green-dim); border-radius: var(--radius); }
+@media (max-width: 768px) { .tax-layout { grid-template-columns: 1fr; } }

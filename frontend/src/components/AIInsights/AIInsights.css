@@ -1,0 +1,50 @@
+.ai-insights-card { display: flex; flex-direction: column; gap: 16px; }
+
+.ai-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ai-title-row { display: flex; align-items: center; gap: 10px; }
+.ai-title-row h3 { font-size: 1rem; }
+.ai-brain-icon { color: var(--accent); }
+.ai-badge {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px;
+  background: var(--accent-dim); color: var(--accent-light);
+  padding: 2px 8px; border-radius: 99px; text-transform: uppercase;
+}
+
+.prediction-banner {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--accent-dim); border: 1px solid var(--accent);
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 0.84rem; color: var(--text-secondary);
+}
+.prediction-banner svg { color: var(--accent); flex-shrink: 0; }
+.prediction-banner strong { color: var(--text-primary); }
+
+.ai-loading { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px; color: var(--text-muted); }
+
+.ai-empty { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 24px; color: var(--text-muted); text-align: center; font-size: 0.88rem; }
+
+.ai-sections { display: flex; flex-direction: column; gap: 20px; }
+.ai-section { display: flex; flex-direction: column; gap: 10px; }
+.ai-section-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); }
+
+.ai-items { display: flex; flex-direction: column; gap: 10px; }
+.ai-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px;
+  transition: border-color 0.2s;
+}
+.ai-item:hover { border-color: var(--border-light); }
+.ai-item-warning { border-left: 3px solid var(--yellow); }
+.ai-item-success { border-left: 3px solid var(--green); }
+.ai-item-tip { border-left: 3px solid var(--accent); }
+
+.ai-item-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; color: var(--accent); background: var(--accent-dim);
+}
+.ai-item-title { font-size: 0.85rem; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; }
+.ai-item-msg { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }

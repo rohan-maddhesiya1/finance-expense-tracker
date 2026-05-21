@@ -1,0 +1,4 @@
+.reports-page { display: flex; flex-direction: column; gap: 20px; }
+.reports-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+@media (max-width: 768px) { .reports-grid { grid-template-columns: 1fr; } }
